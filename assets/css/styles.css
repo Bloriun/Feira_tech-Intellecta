@@ -1,0 +1,82 @@
+body {
+  background: #11140c;
+  color: #e9ddca;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.card {
+  background: #171b13;
+  border: 1px solid #383a33;
+  border-radius: 16px;
+}
+
+.input {
+  background: #11140c;
+  border: 1px solid #52584a;
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  color: #e9ddca;
+  width: 100%;
+}
+
+.panel {
+  background: #171b13;
+  border: 1px solid #383a33;
+  border-radius: 18px;
+}
+
+.soft {
+  color: #a5aa9b;
+}
+
+.nav-item {
+  color: #b7bbaa;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  background: #292d22;
+  color: #e9ddca;
+}
+
+.btn {
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: #c7d36a;
+  color: #11140c;
+}
+
+.btn-secondary {
+  background: #292d22;
+  color: #e9ddca;
+}
+
+.grid-shell {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 300px;
+}
+
+@media (max-width: 1024px) {
+  .grid-shell {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .rightbar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
