@@ -1,25 +1,56 @@
-<?php
+<?php declare(strict_types=1); ?>
 
-declare(strict_types=1);
+<header class="page-header">
+  <div>
+    <span class="eyebrow">Descubra novas conexões</span>
+    <h1>Explorar</h1>
+  </div>
+  <span class="page-count"><?= count($people) ?> pessoas</span>
+</header>
 
-$cache = require __DIR__ . '/../data/mockData.php';
-$people = $cache['people'];
-?>
-<div class="p-5 max-w-2xl mx-auto">
-  <h1 class="text-2xl font-semibold">Explorar</h1>
-  <input class="input mt-5" placeholder="Pesquisar usuários e publicações">
+<div class="page-content explore-page">
+  <section class="explore-intro">
+    <div>
+      <span class="eyebrow">Comunidade em movimento</span>
+      <h2>Encontre quem<br><em>pensa como você.</em></h2>
+    </div>
+    <p>
+      Ideias ficam melhores quando circulam. Descubra estudantes, interesses e
+      novas conversas.
+    </p>
+  </section>
 
-  <div class="mt-5 space-y-3">
+  <label class="form-label search-label" for="people-search">
+    <span class="muted">Encontre pessoas e ideias</span>
+    <div class="search-field">
+      <span><?= icon('search') ?></span>
+      <input
+        class="input"
+        id="people-search"
+        data-filter
+        placeholder="Pesquisar por nome ou interesse"
+      >
+    </div>
+  </label>
+
+  <div class="list people-list explore-people-list">
     <?php foreach ($people as $person): ?>
-      <div class="card p-4 flex gap-3 items-center">
-        <div class="w-10 h-10 rounded-full bg-sage/40 flex items-center justify-center"><?= e(strtoupper(substr($person['name'], 0, 1))) ?></div>
-        <div class="flex-1">
-          <b><?= e($person['name']) ?></b>
-          <p class="soft text-sm">@<?= e($person['username']) ?></p>
-          <p class="text-sm mt-1"><?= e($person['bio']) ?></p>
+      <article class="card person" data-filter-item>
+        <div class="avatar"><?= e(initials($person['name'])) ?></div>
+        <div class="person__copy">
+          <strong><?= e($person['name']) ?></strong>
+          <span>@<?= e($person['username']) ?></span>
+          <p><?= e($person['bio']) ?></p>
         </div>
-        <button class="btn btn-secondary text-sm" type="button">Perfil</button>
-      </div>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-action="placeholder"
+          data-message="Perfil aberto no modo demonstração."
+        >
+          Ver perfil <?= icon('send') ?>
+        </button>
+      </article>
     <?php endforeach; ?>
   </div>
 </div>

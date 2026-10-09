@@ -1,57 +1,71 @@
-<?php
+<?php declare(strict_types=1); ?>
 
-declare(strict_types=1);
-?>
-<div class="min-h-screen grid lg:grid-cols-2">
-  <section class="hidden lg:flex p-12 flex-col justify-between bg-gradient-to-br from-[#11140C] to-[#252b1d]">
-    <div>
-      <div class="text-4xl font-serif">ℐ</div>
-      <div class="text-xs tracking-[.3em]">INTELLECTA</div>
-    </div>
-    <div class="max-w-md">
-      <h1 class="text-5xl font-semibold leading-tight">Sua inteligência<br>em <span class="text-olive">um só lugar.</span></h1>
-      <p class="mt-5 soft">Explore, crie e organize suas ideias com o poder da IA.</p>
-      <div class="mt-10 space-y-5 text-sm">
-        <p>⚡ <b>Mais produtividade</b><br><span class="ml-6 soft">Respostas rápidas e precisas</span></p>
-        <p>▣ <b>Organização inteligente</b><br><span class="ml-6 soft">Suas conversas sempre acessíveis</span></p>
-        <p>♢ <b>Segurança em primeiro lugar</b><br><span class="ml-6 soft">Seus dados protegidos</span></p>
+<div class="auth-page">
+  <section class="auth-visual">
+    <?php render_logo('?page=login'); ?>
+
+    <div class="auth-visual__copy">
+      <span class="eyebrow">Sua comunidade de aprendizado</span>
+      <h1>Ideias que<br><span>movem</span> você.</h1>
+      <p>
+        Um espaço leve para estudar, trocar conhecimento e transformar
+        curiosidade em descoberta.
+      </p>
+
+      <div class="auth-benefits">
+        <div class="auth-benefit">
+          <span class="benefit-icon"><?= icon('spark') ?></span>
+          <div>
+            <b>Aprenda em comunidade</b>
+            <span>Conecte-se a pessoas que compartilham seus interesses.</span>
+          </div>
+        </div>
+        <div class="auth-benefit">
+          <span class="benefit-icon"><?= icon('message') ?></span>
+          <div>
+            <b>Tenha clareza para criar</b>
+            <span>Organize suas conversas, projetos e próximos passos.</span>
+          </div>
+        </div>
       </div>
     </div>
+
+    <small class="muted">© 2024 Intellecta · Feito para quem não para de aprender.</small>
   </section>
 
-  <section class="flex items-center justify-center p-6">
-    <div class="card p-7 w-full max-w-md">
-      <div class="lg:hidden mb-8">
-        <div class="text-3xl font-serif">ℐ</div>
-        <div class="text-[10px] tracking-[.3em]">INTELLECTA</div>
-      </div>
-      <h2 class="text-2xl font-semibold">Entrar na sua conta</h2>
-      <p class="soft mt-2">Acesse o Intellecta e continue de onde parou.</p>
+  <section class="auth-form-wrap">
+    <div class="auth-card card">
+      <span class="eyebrow">Bem-vindo de volta</span>
+      <h2>Entre na sua conta</h2>
+      <p>Continue de onde você parou.</p>
 
-      <form class="mt-6 space-y-4" onsubmit="return false;">
-        <input class="input rounded-xl" type="email" placeholder="seu@email.com">
-        <input class="input rounded-xl" type="password" placeholder="Digite sua senha">
-
-        <div class="flex justify-between text-xs soft">
+      <form class="form-stack" data-demo-form data-success="Login demonstrativo realizado. Bem-vindo de volta!">
+        <label class="form-label" for="login-email">
+          E-mail
+          <input class="input" id="login-email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+        </label>
+        <label class="form-label" for="login-password">
+          Senha
+          <input class="input" id="login-password" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+        </label>
+        <div class="form-row">
           <label><input type="checkbox"> Lembrar de mim</label>
-          <a href="#" onclick="alert('Recuperação de senha será conectada depois.'); return false;">Esqueceu a senha?</a>
+          <a href="#" data-action="placeholder" data-message="A recuperação de senha será conectada em breve.">Esqueceu a senha?</a>
         </div>
-
-        <button class="btn btn-primary w-full" type="button">Entrar →</button>
+        <button class="btn btn-primary" type="submit">Entrar <span aria-hidden="true">→</span></button>
       </form>
 
-      <div class="flex items-center gap-3 my-5 text-xs soft">
-        <span class="h-px bg-line flex-1"></span>
-        ou continue com
-        <span class="h-px bg-line flex-1"></span>
+      <a class="btn btn-secondary auth-demo-link" href="?page=home">
+        Explorar a demonstração <span aria-hidden="true">↗</span>
+      </a>
+
+      <div class="divider">ou continue com</div>
+      <div class="social-grid">
+        <button class="btn btn-secondary" type="button" data-action="placeholder" data-message="Login com Google será conectado em breve.">Google</button>
+        <button class="btn btn-secondary" type="button" data-action="placeholder" data-message="Login com Microsoft será conectado em breve.">Microsoft</button>
       </div>
 
-      <div class="grid grid-cols-2 gap-3">
-        <button class="btn btn-secondary text-sm" type="button">Entrar com Google</button>
-        <button class="btn btn-secondary text-sm" type="button">Entrar com Microsoft</button>
-      </div>
-
-      <p class="text-center text-sm soft mt-6">Ainda não tem uma conta? <a class="text-olive" href="?page=register">Criar conta</a></p>
+      <p class="auth-foot">Ainda não tem uma conta? <a href="?page=register">Criar conta</a></p>
     </div>
   </section>
 </div>
