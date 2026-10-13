@@ -42,14 +42,9 @@
           <span>@<?= e($person['username']) ?></span>
           <p><?= e($person['bio']) ?></p>
         </div>
-        <button
-          class="btn btn-secondary"
-          type="button"
-          data-action="placeholder"
-          data-message="Perfil aberto no modo demonstração."
-        >
+        <a class="btn btn-secondary" href="?page=public-profile&amp;user=<?= e($person['username']) ?>">
           Ver perfil <?= icon('send') ?>
-        </button>
+        </a>
       </article>
     <?php endforeach; ?>
   </div>

@@ -8,8 +8,7 @@
   <button
     class="btn btn-ghost"
     type="button"
-    data-action="placeholder"
-    data-message="Todas as notificações foram marcadas como lidas."
+    data-mark-read
   >
     Marcar como lidas
   </button>

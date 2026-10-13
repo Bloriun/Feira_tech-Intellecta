@@ -10,25 +10,14 @@
     </p>
   </div>
 
-  <button
-    class="btn btn-primary"
-    type="button"
-    data-action="placeholder"
-    data-message="A criação de publicação está pronta para ser conectada."
-  >
-    + Publicar
-  </button>
 </header>
 
 <div class="page-content home-page">
-  <section class="card composer">
+  <section class="composer card">
     <div class="avatar">M</div>
 
     <div class="composer__body">
-      <form
-        data-demo-form
-        data-success="Sua publicação foi salva no modo demonstração."
-      >
+      <form data-post-form>
         <label class="form-label" for="new-post">
           <span class="muted">Compartilhe algo com a comunidade</span>
           <textarea
@@ -43,16 +32,14 @@
           <button
             class="btn btn-ghost"
             type="button"
-            data-action="placeholder"
-            data-message="Anexos estarão disponíveis em breve."
+            data-media
           >
             <?= icon('image') ?> mídia
           </button>
           <button
             class="btn btn-ghost"
             type="button"
-            data-action="placeholder"
-            data-message="A opção de enquete estará disponível em breve."
+            data-poll
           >
             <?= icon('spark') ?> enquete
           </button>
@@ -82,8 +69,7 @@
           <button
             class="btn btn-ghost"
             type="button"
-            data-action="placeholder"
-            data-message="Mais opções em breve."
+            data-post-menu
             aria-label="Mais opções"
           >
             •••
@@ -99,10 +85,12 @@
           <button
             class="btn btn-ghost"
             type="button"
-            data-action="placeholder"
-            data-message="Comentários em breve."
+            data-comments
           >
             <?= icon('message') ?> <?= (int) $post['comments'] ?>
+          </button>
+          <button class="btn btn-ghost" type="button" data-save="<?= e($post['username'] . '-' . md5($post['body'])) ?>" aria-label="Salvar publicação">
+            <?= icon('bookmark') ?>
           </button>
           <span class="post__stats"><?= e($post['time']) ?></span>
         </div>
